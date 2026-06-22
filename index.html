@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Page title</title>
+
+    <!-- Corrected Google Fonts Preconnect and Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class='header'>
+        <p class='logo'>Sk.interiors</p>
+        <a class='message' href="https://wa.me/2347016973293?text=Hello%20SK%20Interior,%20I%20want%20to%20buy%20something.">message us<i class="fa-brands fa-whatsapp whatsapp-icon"></i></div>
+    </a>
+    
+    
+    
+    <!-- REPLACED BANNER WITH THE DYNAMIC HERO SLIDER -->
+    <section class="hero">
+
+        <!-- Add your custom interior images inside data-bg below -->
+        <div class="slide active" data-bg="sum.png">
+            <h1>Get 10% discount on your first order</h1>
+            <p>Create beautiful websites with modern hero sliders.</p>
+            <a href="#" class="btn">SHOP NOW</a>
+        </div>
+
+        <div class="slide" data-bg="plant.png">
+            <h1>Creative Design</h1>
+            <p>Build stunning user experiences with smooth animations.</p>
+            <a href="#" class="btn">Explore</a>
+        </div>
+
+        <div class="slide" data-bg="ride.png">
+            <h1>Fast & Responsive</h1>
+            <p>Works perfectly on mobile, tablet and desktop devices.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="nav">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+    
+    
+    
+    <div class='below'>
+        <div class='inside'><i class="fa-solid fa-medal"></i><p>premium quality</p>
+        
+        </div>
+        <div class='inside'><i class="fa-solid fa-truck-fast"></i><p>fast shipping</p></div>
+        <div class='inside'><i class="fa-solid fa-users"></i><p>trusted by customers</p></div>
+    </div>
+    
+    
+    
+    <h3 class='can'>Find your home interior choice</h3>
+    <p class='pe'>Design the Space You Deserve — Discover Interior Styles That Define You</p>
+    
+    <section class='overflow'>
+        <div class="carousel-container">
+  <div class="carousel-track">
+    <div class="carousel-item"><img src="sum.png"></div>
+    <div class="carousel-item"><img src="frame.png"></div>
+    <div class="carousel-item"><img src="watch.png"></div>
+    <div class="carousel-item"><img src="ride.png"></div>
+    <div class="carousel-item"><img src="fragrance.png"></div>
+    <div class="carousel-item"><img src="plant.png"></div>
+  </div>
+</div>
+    </section>
+    
+    
+ <div class='col'>
+     <h2>LATEST COLLECTIONS</h2>
+     <p>shop with SK.interiors and experience luxury
+and style like never before. our
+products are designed to elevate your
+lifestyle and make you stand out
+from the crowd.
+
+</p>
+<div id="products" class='prod'>
+    <img src="sum.png">
+    <img src="pyjamas.png">
+    <img src="frame.png">
+    <img src="case.png">
+    <img src="ride.png">
+    <img src="plant.png">
+    <img src="fragrance.png">
+    <img src="watch.png">
+    <img src="leaf.png">
+    <img src="feather.png">
+    <img src="money.png">
+    <img src="holder.png">
+    <img src="statue.png">
+    <img src="Micky.png">
+</div>
+ </div>
+ 
+  
+  
+   
+<footer>
+    <svg class="footer-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#F0E2B6" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    
+    <div class='non'><p class='log'>Skinteriors</p></div>
+    <div class='social'><i class="fa-brands fa-facebook-f"></i>
+<i class="fa-brands fa-x-twitter"></i>
+<i class="fa-brands fa-tiktok"></i>
+</div>
+<p>© 2026 SK Interior. All Rights Reserved.</p>
+</footer>
+
+
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let current = 0;
+
+// Reads your image paths from HTML and applies them as backgrounds
+slides.forEach(slide => {
+    const imgUrl = slide.getAttribute('data-bg');
+    if (imgUrl) {
+        slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${imgUrl}')`;
+    }
+});
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active', 'left'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    for (let i = 0; i < index; i++) {
+        slides[i].classList.add('left');
+    }
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    current = index;
+}
+
+let slideInterval = setInterval(() => {
+    showSlide((current + 1) % slides.length);
+}, 3000);
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        clearInterval(slideInterval); 
+        showSlide(index);
+        slideInterval = setInterval(() => showSlide((current + 1) % slides.length), 3000); 
+    });
+});
+
+document.querySelectorAll('#products img').forEach(img => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'product-card';
+
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Buy Now';
+    btn.className = 'buy-btn';
+
+    btn.addEventListener('click', () => {
+        const message = encodeURIComponent(
+            `Hi SK Interior, I want to purchase this product: ${img.src}`
+        );
+
+        window.open(
+            `https://wa.me/2347016973293?text=${message}`,
+            '_blank'
+        );
+    });
+
+    wrapper.appendChild(btn);
+});
+</script>
+</body>
+</html>
